@@ -15,11 +15,11 @@ use App\Http\Controllers\API\V1\Library\{
 };
 
 Route::prefix('auth')->group(function () {
-    Route::post('register', RegisterController::class);
-    Route::post('login', LoginController::class);
+    Route::post('register', RegisterController::class)->name('register');
+    Route::post('login', LoginController::class)->name('login');
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
-        Route::post('logout', LogoutController::class);
+        Route::post('logout', LogoutController::class)->name('logout');
     });
 });
 
